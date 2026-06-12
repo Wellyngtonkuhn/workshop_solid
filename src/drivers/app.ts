@@ -11,6 +11,7 @@ import {
 import { z } from "zod";
 import { EmailAlreadyExistsError, InvalidMarketingPreferredChannelError, PasswordDoNotMatchError } from "../application/errors/index.js";
 import { CreateUser } from "../application/useCases/CreateUser.js";
+import { DrizzelUserRepository } from "../resources/repositories/drizzle/UserRepository.js";
 
 export const buildApp = () => {
   const app = Fastify();
@@ -79,7 +80,7 @@ export const buildApp = () => {
       },
       handler: async (request, reply) => {
         try {
-          const createUser = new CreateUser()
+          const createUser = new CreateUser(new DrizzelUserRepository)
           const output = await createUser.execute(request.body)
           return reply.status(201).send(output)
         } catch (error) {

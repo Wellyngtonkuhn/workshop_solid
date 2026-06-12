@@ -1,8 +1,8 @@
 import { FastifyInstance } from "fastify";
 import { buildApp } from "./app.js";
 import { beforeAll, afterAll, beforeEach, describe, it, expect } from "vitest";
-import { db } from "../resources/db/client.js";
-import { usersTable } from "../resources/db/schema.js";
+import { db } from "../resources/database/drizzle/client.js";
+import { usersTable } from "../resources/database/schema/user-table.js";
 import request from 'supertest'
 
 let app: FastifyInstance;
