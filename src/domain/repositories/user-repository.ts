@@ -1,6 +1,6 @@
 // abstração (Os módulos de alto nível dependem desta abstração/interface) isso é o D do SOLID
 
-import { User } from "../entities/User.js"
+import { UserEntity, UserStatus } from "../entities/User.js"
 
 export interface CreateUserRepositoryInput {
   name: string
@@ -9,9 +9,10 @@ export interface CreateUserRepositoryInput {
   password: string
   phoneNumber: string
   preferredMarketingChannel: string
+  status: UserStatus
 }
 
 export interface UserRepository {
-  findByEmail(email: string): Promise<User | null>
-  createUser(body: CreateUserRepositoryInput): Promise<User>
+  findByEmail(email: string): Promise<UserEntity | null>
+  createUser(body: CreateUserRepositoryInput): Promise<UserEntity>
 }

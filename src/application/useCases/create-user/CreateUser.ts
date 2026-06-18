@@ -5,6 +5,8 @@ import { NotificationService } from "../../services/Notification.service.js";
 import { CreateUserInputDTO } from "./create-user-input.js";
 import { CreateUserOutputDTO } from "./create-user-output.js";
 import { NotificationChannel } from "../../ports/notification-provider.js";
+import { User, UserStatus } from "../../../domain/entities/User.js";
+import { PendingUserState } from "../../../domain/states/user/pending-user.state.js";
 
 export class CreateUser {
   // aqui é invertido a dependencia usando o D do SOLID, esse módulo de alto nível depende apenas da abstração do módulo de baixo nível
@@ -31,6 +33,7 @@ export class CreateUser {
       password: await bcrypt.hash(body.password, 10),
       phoneNumber: body.phoneNumber,
       preferredMarketingChannel: body.preferredMarketingChannel,
+      status: UserStatus.PENDING
     })
 
     if (!userCreated) {
