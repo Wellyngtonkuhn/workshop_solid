@@ -58,6 +58,10 @@ export class User {
     return this.state.canSendMessage()
   }
 
+  getStatus(){
+    return this.props.status
+  }
+
   private syncStatus() {
     this.props.status =
       this.state.getName() as UserStatus
@@ -66,4 +70,6 @@ export class User {
   get propsData() {
     return this.props
   }
+
+
 }

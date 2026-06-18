@@ -1,4 +1,4 @@
-import { RegisteredUserState } from "./registered-user.state.js"
+import { EmailConfirmedState } from "./email-confirmed-user.state.js"
 import { UserState } from "./user.state.js"
 
 export class PendingUserState implements UserState {
@@ -15,7 +15,7 @@ export class PendingUserState implements UserState {
   }
 
   register(): UserState {
-    return new RegisteredUserState()
+    return new EmailConfirmedState()
   }
 
   activate(): UserState {

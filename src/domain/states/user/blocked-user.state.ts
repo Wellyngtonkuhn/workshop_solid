@@ -6,11 +6,11 @@ export class BlockedUserState implements UserState {
   }
 
   canUpdateProfile(): boolean {
-    throw false
+    return false
   }
 
   canSendMessage(): boolean {
-    throw false
+    return false
   }
   
   register(): UserState {
