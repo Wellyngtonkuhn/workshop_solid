@@ -5,7 +5,7 @@ describe("BlockedUserState", () => {
 
   const state = new BlockedUserState()
 
-  it("should NOT allow anything", () => {
+  it("Permissions", () => {
     expect(state.canLogin()).toBe(true)
     expect(state.canUpdateProfile()).toBe(false)
     expect(state.canSendMessage()).toBe(false)

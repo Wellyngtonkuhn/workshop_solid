@@ -7,16 +7,10 @@ describe("EmailConfirmedState", () => {
 
   const state = new EmailConfirmedState()
 
-  it("should allow update profile", () => {
-    expect(state.canUpdateProfile()).toBe(true)
-  })
-
-  it("should allow send message", () => {
-    expect(state.canSendMessage()).toBe(false)
-  })
-
-  it("should NOT allow login yet", () => {
+  it("Permissions", () => {
     expect(state.canLogin()).toBe(false)
+    expect(state.canSendMessage()).toBe(false)
+    expect(state.canUpdateProfile()).toBe(true)
   })
 
   it("should transition to VERIFIED", () => {

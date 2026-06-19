@@ -5,15 +5,9 @@ import { EmailConfirmedState } from "../email-confirmed-user.state.js";
 describe('PendingUserState',() => {
   const state = new PendingUserState()
 
-  it("Should NOT allow login", () => {
+  it("Permissions", () => {
     expect(state.canLogin()).toBe(false)
-  })
-
-  it("Should NOT allow update profile", () => {
     expect(state.canUpdateProfile()).toBe(false)
-  })
-
-  it("Should NOT allow send message", () => {
     expect(state.canSendMessage()).toBe(false)
   })
 

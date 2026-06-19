@@ -6,15 +6,9 @@ describe("VerifiedUserState", () => {
 
   const state = new VerifiedUserState()
 
-  it("should allow login", () => {
+  it("Permissions", () => {
     expect(state.canLogin()).toBe(true)
-  })
-
-  it("should allow update profile", () => {
     expect(state.canUpdateProfile()).toBe(true)
-  })
-
-  it("should allow send message", () => {
     expect(state.canSendMessage()).toBe(true)
   })
 
